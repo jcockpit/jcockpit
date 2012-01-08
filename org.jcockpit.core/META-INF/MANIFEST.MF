@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %bundle.name
+Bundle-Vendor: %bundle.vendor
+Bundle-Localization: plugin
+Bundle-SymbolicName: org.jcockpit.core;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-Activator: org.jcockpit.core.internal.Activator
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.core.runtime
+Export-Package: org.jcockpit.core.data
+

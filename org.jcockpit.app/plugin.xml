@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application
+            cardinality="singleton-global"
+            thread="main"
+            visible="true">
+         <run
+               class="org.jcockpit.app.internal.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="org.jcockpit.app.internal.Perspective"
+            id="org.jcockpit.app.perspective"
+            name="JCockpit Perspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.rap.ui.branding">
+      <branding
+            id="org.jcockpit.app.branding"
+            servletName="jcockpit"
+            themeId="org.eclipse.rap.design.example.fancy.theme"
+            title="JCockpit App">
+      </branding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="org.jcockpit.app.internal.ui.views.ExplorerView"
+            id="org.jcockpit.app.explorer"
+            name="Explorer"
+            restorable="true">
+      </view>
+   </extension>
+
+</plugin>
