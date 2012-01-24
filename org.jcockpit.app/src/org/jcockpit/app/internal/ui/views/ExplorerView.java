@@ -1,9 +1,9 @@
 package org.jcockpit.app.internal.ui.views;
 
 import org.eclipse.jface.viewers.IStructuredContentProvider;
-import org.eclipse.jface.viewers.ITableLabelProvider;
+import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
-import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
@@ -11,43 +11,66 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
+import org.jcockpit.core.CoreActivator;
+import org.jcockpit.core.data.ICategory;
 import org.jcockpit.core.data.IElement;
-import org.jcockpit.core.data.INode;
+import org.jcockpit.core.data.ITeam;
 
 public class ExplorerView extends ViewPart {
 	public static final String ID = "org.jcockpit.app.explorer";
 
-	private TableViewer viewer;
+	private TreeViewer viewer;
 
 	@SuppressWarnings("serial")
-	class ViewContentProvider implements IStructuredContentProvider {
-		public void inputChanged(Viewer v, Object oldInput, Object newInput) {
-		}
+	class ViewContentProvider implements IStructuredContentProvider,
+			ITreeContentProvider {
 
 		public void dispose() {
+			// TODO Auto-generated method stub
+
 		}
 
-		public Object[] getElements(Object parent) {
-			return new IElement[] { new INode() {
-				
-				public String getName() {
-					return "node1";
-				}
-			}};
+		public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
+			// TODO Auto-generated method stub
+
+		}
+
+		public Object[] getChildren(Object parentElement) {
+			if (parentElement instanceof ICategory)
+				return ((ICategory) parentElement).getElements().toArray();
+			if (parentElement instanceof ITeam)
+				return ((ITeam) parentElement).getMembers().toArray();
+			return null;
+		}
+
+		public Object getParent(Object element) {
+			if (element instanceof IElement)
+				return ((IElement) element).getCategory();
+			return null;
+		}
+
+		public boolean hasChildren(Object element) {
+			if (element instanceof ICategory)
+				return ((ICategory) element).getElements().size() > 0;
+			if (element instanceof ITeam)
+				return ((ITeam) element).getMembers().size() > 0;
+
+			return false;
+		}
+
+		public Object[] getElements(Object inputElement) {
+			return CoreActivator.getDefault().getElementStore()
+					.findRootCategories().toArray();
 		}
 	}
 
 	@SuppressWarnings("serial")
-	class ViewLabelProvider extends LabelProvider implements
-			ITableLabelProvider {
-		public String getColumnText(Object obj, int index) {
-			if(obj instanceof IElement)
-				return ((IElement)obj).getName();
-			return getText(obj);
-		}
+	class ViewLabelProvider extends LabelProvider {
+		public String getText(final Object element) {
 
-		public Image getColumnImage(Object obj, int index) {
-			return getImage(obj);
+			if (element instanceof IElement)
+				return ((IElement) element).getName();
+			return getText(element);
 		}
 
 		public Image getImage(Object obj) {
@@ -61,8 +84,7 @@ public class ExplorerView extends ViewPart {
 	 * it.
 	 */
 	public void createPartControl(Composite parent) {
-		int style = SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL;
-		viewer = new TableViewer(parent, style);
+		viewer = new TreeViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
 		viewer.setContentProvider(new ViewContentProvider());
 		viewer.setLabelProvider(new ViewLabelProvider());
 		viewer.setInput(getViewSite());

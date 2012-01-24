@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.6"?>
 
-<target name="JCockpit :: Target" sequenceNumber="5">
+<target name="JCockpit :: Target" sequenceNumber="11">
 <locations>
 <location includeAllPlatforms="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.rap.runtime.requirements.feature.group" version="1.5.0.20111108-1028"/>
@@ -14,6 +14,16 @@
 </location>
 <location includeAllPlatforms="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.rcp.source.feature.group" version="3.7.1.r37x_v20110729-9DB5FmNFnFLSFCtLxnRfMqt15A4A"/>
+<repository location="http://download.eclipse.org/releases/indigo"/>
+</location>
+<location includeAllPlatforms="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.persistence.sdk.feature.group" version="2.3.2.v20111125-r10461"/>
+<repository location="http://download.eclipse.org/rt/eclipselink/updates/"/>
+</location>
+<location includeAllPlatforms="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.equinox.sdk.feature.group" version="3.7.1.R37x_v20110907-7M7W8h8eNV4Vrz-hz01A7SL_MhZP"/>
+<unit id="org.eclipse.jetty.sdk.feature.group" version="7.5.1.201109140245"/>
+<unit id="org.eclipse.rap.runtime.sdk.feature.group" version="1.4.1.20110914-1945"/>
 <repository location="http://download.eclipse.org/releases/indigo"/>
 </location>
 </locations>

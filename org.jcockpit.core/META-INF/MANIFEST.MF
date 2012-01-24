@@ -5,9 +5,19 @@ Bundle-Vendor: %bundle.vendor
 Bundle-Localization: plugin
 Bundle-SymbolicName: org.jcockpit.core;singleton:=true
 Bundle-Version: 0.1.0.qualifier
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Bundle-Activator: org.jcockpit.core.internal.Activator
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Activator: org.jcockpit.core.CoreActivator
+JPA-PersistenceUnits: jcockpit
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.eclipse.core.runtime
-Export-Package: org.jcockpit.core.data
+Bundle-ClassPath: .,jars/hsqldb-2.2.6.jar
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.persistence.jpa,
+ javax.persistence,
+ org.eclipse.persistence.jpa.osgi
+Export-Package: org.jcockpit.core,
+ org.jcockpit.core.data
+Import-Package: javax.persistence;jpa="2.0";version="1.1.0",
+ org.eclipse.persistence.jpa,
+ org.jcockpit.core.data,
+ org.osgi.framework
 

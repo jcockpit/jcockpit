@@ -5,12 +5,15 @@ Bundle-Vendor: %bundle.vendor
 Bundle-Localization: plugin
 Bundle-SymbolicName: org.jcockpit.app;singleton:=true
 Bundle-Version: 0.1.0.qualifier
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Activator: org.jcockpit.app.internal.Activator
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.rap.ui,
  org.eclipse.rap.ui.workbench,
- org.jcockpit.core
-Import-Package: javax.servlet;version="2.5.0",
- javax.servlet.http;version="2.5.0"
+ org.jcockpit.core,
+ org.eclipse.persistence.jpa;bundle-version="2.3.2"
+Import-Package: javax.persistence;version="2.0.3",
+ javax.servlet,
+ javax.servlet.http,
+ javax.xml
 
