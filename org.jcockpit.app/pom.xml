@@ -4,6 +4,7 @@
     <artifactId>org.jcockpit.parent</artifactId>
     <groupId>org.jcockpit</groupId>
     <version>0.1.0-SNAPSHOT</version>
+    <relativePath>../org.jcockpit.parent/pom.xml</relativePath>
   </parent>
   <artifactId>org.jcockpit.app</artifactId>
   <packaging>eclipse-plugin</packaging>
