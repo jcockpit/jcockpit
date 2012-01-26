@@ -13,13 +13,17 @@ import javax.persistence.criteria.Root;
 
 import org.eclipse.persistence.config.PersistenceUnitProperties;
 import org.eclipse.persistence.jpa.osgi.PersistenceProvider;
+import org.jcockpit.core.data.ElementEvent;
 import org.jcockpit.core.data.IActor;
 import org.jcockpit.core.data.ICategory;
 import org.jcockpit.core.data.IElement;
 import org.jcockpit.core.data.IElementStore;
+import org.jcockpit.core.data.ModelListener;
 
 public class DbElementStore implements IElementStore {
-	EntityManagerFactory emf;
+
+	private List<ModelListener> listeners = new ArrayList<ModelListener>();
+	private EntityManagerFactory emf;
 
 	public DbElementStore() {
 		Map<String, Object> properties = new HashMap<String, Object>();
@@ -104,7 +108,7 @@ public class DbElementStore implements IElementStore {
 				qa.setCategory(c);
 				c.getElements().add(qa);
 				em.persist(qa);
-				
+
 				Actor a1 = new Actor();
 				a1.setName("dev1");
 				em.persist(a1);
@@ -121,6 +125,50 @@ public class DbElementStore implements IElementStore {
 			}
 		} finally {
 			em.close();
+		}
+	}
+
+	public ICategory createCategory(String name, String description,
+			ICategory parent) {
+		EntityManager em = emf.createEntityManager();
+		try {
+			em.getTransaction().begin();
+			Category c = new Category();
+			c.setDescription(description);
+			c.setName(name);
+			c.setCategory(parent);
+			em.persist(c);
+			if (parent != null) {
+				parent.getElements().add(c);
+				em.merge(parent);
+			}
+			em.getTransaction().commit();
+			notifyOnCreated(c);
+			return c;
+		} finally {
+			em.close();
+		}
+	}
+
+	public void addListener(ModelListener listener) {
+		listeners.add(listener);
+	}
+
+	public void removeListener(ModelListener listener) {
+		listeners.remove(listener);
+	}
+
+	void notifyOnCreated(final IElement element) {
+		ModelListener[] modelListeners = new ModelListener[listeners.size()];
+		listeners.toArray(modelListeners);
+		ElementEvent evt = new ElementEvent(element);
+		for (int i = 0; i < modelListeners.length; i++) {
+			try {
+				modelListeners[i].elementCreated(evt);
+			} catch (final RuntimeException re) {
+
+				// TODO
+			}
 		}
 	}
 }
