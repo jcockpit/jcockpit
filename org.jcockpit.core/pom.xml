@@ -39,31 +39,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<outputDirectory>jars  <properties>
-            <property name="javax.persistence.jdbc.driver" 
-                      value="org.hsqldb.jdbcDriver"/>
-            <property name="javax.persistence.jdbc.url" 
-                      value="jdbc:hsqldb:file:\opt\db\testb;shutdown=true"/>
-            <property name="javax.persistence.jdbc.user" value="SA"/>
-            <property name="javax.persistence.jdbc.password" value=""/>
-                        
-        </properties>  <properties>
-            <property name="javax.persistence.jdbc.driver" 
-                      value="org.hsqldb.jdbcDriver"/>
-            <property name="javax.persistence.jdbc.url" 
-                      value="jdbc:hsqldb:file:\opt\db\testb;shutdown=true"/>
-            <property name="javax.persistence.jdbc.user" value="SA"/>
-            <property name="javax.persistence.jdbc.password" value=""/>
-                        
-        </properties>  <properties>
-            <property name="javax.persistence.jdbc.driver" 
-                      value="org.hsqldb.jdbcDriver"/>
-            <property name="javax.persistence.jdbc.url" 
-                      value="jdbc:hsqldb:file:\opt\db\testb;shutdown=true"/>
-            <property name="javax.persistence.jdbc.user" value="SA"/>
-            <property name="javax.persistence.jdbc.password" value=""/>
-                        
-        </properties></outputDirectory>
+					<outputDirectory>jars</outputDirectory>
 					<artifactItems>
 						<artifactItem>
 							<groupId>org.hsqldb</groupId>
