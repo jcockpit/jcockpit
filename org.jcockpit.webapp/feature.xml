@@ -201,6 +201,13 @@
          unpack="false"/>
 
    <plugin
+         id="org.eclipse.rap.ui.views"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
          id="org.eclipse.rap.design.example"
          download-size="0"
          install-size="0"
@@ -251,83 +258,10 @@
          unpack="false"/>
 
    <plugin
-         id="javax.persistence"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         fragment="false"
-         unpack="false"/>
-
-   <plugin
-         id="javax.servlet"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         fragment="false"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.equinox.http.jetty"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         fragment="false"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.equinox.transforms.hook"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         fragment="true"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.equinox.weaving.hook"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         fragment="true"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.persistence.asm"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         fragment="false"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.persistence.core"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         fragment="false"
-         unpack="false"/>
-
-   <plugin
          id="org.eclipse.persistence.jpa"
          download-size="0"
          install-size="0"
          version="0.0.0"
-         fragment="false"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.persistence.jpa.equinox"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         fragment="true"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.persistence.jpa.equinox.weaving"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         fragment="true"
          unpack="false"/>
 
    <plugin
@@ -335,54 +269,34 @@
          download-size="0"
          install-size="0"
          version="0.0.0"
-         fragment="false"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.persistence.oracle"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         fragment="true"
-         unpack="false"/>
-
-   <plugin
-         id="org.jcockpit.core"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         fragment="false"
-         unpack="false"/>
-
-   <plugin
-         id="org.mortbay.jetty.server"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         fragment="false"
-         unpack="false"/>
-
-   <plugin
-         id="org.mortbay.jetty.util"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         fragment="false"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.rap.ui.views"
+         id="org.eclipse.persistence.core"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.rap.rwt.osgi"
+         id="javax.persistence"
          download-size="0"
          install-size="0"
          version="0.0.0"
-         fragment="false"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.persistence.asm"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+         
+   <plugin
+         id="org.eclipse.persistence.antlr"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
          unpack="false"/>
 
 </feature>

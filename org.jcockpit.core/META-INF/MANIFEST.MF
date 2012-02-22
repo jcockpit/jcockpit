@@ -13,10 +13,11 @@ Bundle-ClassPath: .,jars/hsqldb-2.2.6.jar
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.persistence.jpa,
  javax.persistence,
- org.eclipse.persistence.jpa.osgi
+ org.eclipse.persistence.jpa.osgi,
+ org.eclipse.persistence.asm
 Export-Package: org.jcockpit.core,
  org.jcockpit.core.data
-Import-Package: javax.persistence;jpa="2.0";version="1.1.0",
+Import-Package: javax.persistence;jpa="2.0",
  org.eclipse.persistence.jpa,
  org.jcockpit.core.data,
  org.osgi.framework

@@ -9,13 +9,4 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Activator: org.jcockpit.app.internal.Activator
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.rap.ui,
- org.eclipse.rap.ui.workbench,
- org.jcockpit.core,
- org.eclipse.persistence.jpa,
- org.eclipse.rap.design.example,
- org.eclipse.equinox.http.jetty
-Import-Package: javax.persistence,
- javax.servlet;resolution:=optional,
- javax.servlet.http;resolution:=optional,
- javax.xml
-
+ org.jcockpit.core

@@ -12,20 +12,20 @@
 		<init-param>
 			<param-name>commandline</param-name>
 			<param-value>-console</param-value>			
-		</init-param>		
+		</init-param>		 
 		
-    <!-- Enable multi-language support for the extension registry -->
+    <!-- Enable multi-language support for the extension registry
 		<init-param>
 			<param-name>commandline</param-name>
-			<param-value>-registryMultiLanguage</param-value>			
-		</init-param>		
+			<param-value>-registryMultiLanguage -console</param-value>			
+		</init-param>		 -->
     
     <!-- Framework Controls could be useful for testing purpose, but
-         we disable it in RAP environment per default -->
+         we disable it in RAP environment per default 
 		<init-param>
 			<param-name>enableFrameworkControls</param-name>
-			<param-value>false</param-value>			
-		</init-param>
+			<param-value>true</param-value>			
+		</init-param> -->
 		
 		<!--
 		  org.eclipse.equinox.servletbridge and the Servlet API are exported automatically to the underlying OSGi framework.
